@@ -9,6 +9,11 @@ const routes = [
     path: '/',
     name: 'FirstMap',
     component: FirstMap
+  },
+  {
+    path: '/popup',
+    name: 'Popup',
+    component: () => import('../views/popup/Popup')
   }
 ]
 

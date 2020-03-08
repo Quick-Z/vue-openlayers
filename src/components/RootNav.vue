@@ -1,5 +1,5 @@
 <template>
-  <div class="g-nav">
+  <nav class="g-nav">
     <router-link
       class="link"
       to="/"
@@ -8,12 +8,32 @@
     >
       第一个地图 map
     </router-link>
-  </div>
+    <router-link
+      v-for="(nav, index) in navList"
+      :key="index"
+      class="link"
+      :to="nav.to"
+      active-class="active"
+      tag="div"
+    >
+      {{nav.title}}
+    </router-link>
+  </nav>
 </template>
 
 <script>
 export default {
-  name: 'rootNav'
+  name: 'rootNav',
+  data () {
+    return {
+      navList: [
+        {
+          title: '弹窗 popup',
+          to: '/popup'
+        }
+      ]
+    }
+  }
 }
 </script>
 
@@ -36,6 +56,7 @@ export default {
     border-bottom: 1px dashed #ccc;
     text-decoration: none;
     color: $darkTextColor;
+    cursor: pointer;
   }
 
   .active {

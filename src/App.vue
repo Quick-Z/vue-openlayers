@@ -39,4 +39,9 @@ export default {
   .map-x {
     @include mapXStyle();
   }
+
+  .vm {
+    height: 100vh;
+    overflow: auto;
+  }
 </style>
