@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <root-nav></root-nav>
-    </div>
+    <root-nav></root-nav>
     <div class="root-view">
       <router-view/>
     </div>
@@ -10,8 +8,7 @@
 </template>
 
 <script>
-import RootNav from './components/RootNav'
-
+import RootNav from './components/rootNav/RootNav'
 export default {
   name: 'App',
   components: {
@@ -29,19 +26,19 @@ export default {
 
   .root-view {
     flex: 1;
+    height: 100vh;
+    overflow: hidden;
   }
 
   // pub
   .h-title {
     @include headTitle();
   }
-  
   .map-x {
-    @include mapXStyle();
+    @include mapStyle();
   }
-
   .vm {
-    height: 100vh;
+    height: 100%;
     overflow: auto;
   }
 </style>

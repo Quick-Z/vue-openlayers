@@ -1,6 +1,6 @@
 <template>
   <div class="vm">
-    <h2 class="h-title">第一个地图 map</h2>
+    <h2 class="h-title">第一个地图</h2>
     <div id="map" class="map-x"></div>
     <div class="explain">
       <p>Map：地图容器，核心部分，可加载各类地图与功能控件，用于渲染、表现动态地图。</p>
@@ -49,6 +49,6 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+  
 </style>

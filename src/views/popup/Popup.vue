@@ -26,10 +26,10 @@
 import 'ol/ol.css'
 import { Map, View } from 'ol'
 import Tile from 'ol/layer/Tile'
-import OSM from 'ol/source/OSM'
-import { toStringHDMS } from 'ol/coordinate'
-import { toLonLat } from 'ol/proj'
-import Overlay from 'ol/Overlay'
+import { OSM } from 'ol/source'
+import { toStringHDMS } from 'ol/coordinate.js'
+import { toLonLat } from 'ol/proj.js'
+import Overlay from 'ol/Overlay.js'
 
 export default {
   name: 'Popup',

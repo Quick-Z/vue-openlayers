@@ -5,7 +5,7 @@
 }
 
 /* 地图默认尺寸样式 */
-@mixin mapXStyle($w: 800px, $h: 800px) {
+@mixin mapStyle($w: 800px, $h: 800px) {
   width: $w;
   height: $h;
   border: 1px solid #eee;
