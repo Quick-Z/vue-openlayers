@@ -1,13 +1,11 @@
 <template>
   <div class="vm">
     <h2 class="h-title">弹窗 popup</h2>
-    <div id="map" class="map-x"></div>
+    <div id="map" class="map-x" ref="map"></div>
 
-    <div
-      class="popup"
-      ref="popup"
-      v-show="currentCoordinate"
-    >
+    <div class="hit-map" ref="HitMap">
+    </div>
+    <div ref="popup" class="popup">
       <span class="icon-close" @click="closePopup">✖</span>
       <div class="content">{{currentCoordinate}}</div>
     </div>
@@ -26,61 +24,58 @@
 import 'ol/ol.css'
 import { Map, View } from 'ol'
 import Tile from 'ol/layer/Tile'
-import { OSM } from 'ol/source'
-import { toStringHDMS } from 'ol/coordinate.js'
-import { toLonLat } from 'ol/proj.js'
-import Overlay from 'ol/Overlay.js'
+import XYZ from 'ol/source/XYZ' // 引入XYZ地图格式
+import Overlay from 'ol/Overlay'
+import { toStringHDMS } from 'ol/coordinate'
+import { toLonLat } from 'ol/proj'
 
 export default {
   name: 'Popup',
-  data () {
+  data() {
     return {
       map: null,
-      currentCoordinate: null,
-      overlay: null
+      overlay: null,
+      currentCoordinate: ''
     }
   },
   methods: {
-    initMap () {
-      // 弹窗
+    initMap() {
       this.overlay = new Overlay({
-        element: this.$refs.popup, // 弹窗标签，在html里
-        autoPan: true, // 如果弹窗在底图边缘时，底图会移动
-        autoPanAnimation: { // 底图移动动画
+        element: this.$refs.popup,
+        autoPan: true,
+        autoPanAnimation: {
           duration: 250
         }
       })
 
-      // 实例化地图
+
       this.map = new Map({
-        target: 'map',
+        target: this.$refs.map,
         layers: [
           new Tile({
-            source: new OSM()
+            name: 'defaultLayer',
+            source: new XYZ({
+              url: 'http://map.geoq.cn/ArcGIS/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}'
+            })
           })
         ],
-        overlays: [this.overlay], // 把弹窗加入地图
+        overlays: [this.overlay],
         view: new View({
-          center: [-27118403.38733027, 4852488.79124965], // 北京坐标
-          zoom: 12 // 地图缩放级别（打开页面时默认级别）
+          projection: 'EPSG:4326',
+          center: [113.1206, 23.034996],
+          zoom: 12
         })
       })
+
       this.mapClick()
     },
-    mapClick () {
-      this.map.on('singleclick', evt => {
-        const coordinate = evt.coordinate
-        const hdms = toStringHDMS(toLonLat(coordinate))
-        
+
+    mapClick() {
+      this.map.on("singleclick", evt =>{
+        const coordinate = evt.coordinate // 获取坐标
+        const hdms = toStringHDMS(toLonLat(coordinate)) // 转换坐标格式
         this.currentCoordinate = hdms // 保存坐标点
-
-        setTimeout(() => {
-          // 设置弹窗位置
-          // 这里要设置定时器，不然弹窗首次出现，底图会跑偏
-          this.overlay.setPosition(coordinate)
-        }, 0)
-        
-
+        this.overlay.setPosition(coordinate)
       })
     },
     // 关闭弹窗
@@ -98,30 +93,35 @@ export default {
 <style lang="scss" scoped>
   @import '@/assets/css/varibles.scss';
   .popup {
-    min-width: 280px;
-    position: relative;
+    width: 300px;
+    height: 100px;
     background: #fff;
-    padding: 8px 16px;
-    display: flex;
-    flex-direction: column;
-    transform: translate(-50%, calc(-100% - 12px));
+    position: absolute;
+    top: -115px;
+    left: -150px;
+    box-sizing: border-box;
+    padding: 10px;
 
     &::after {
-      display: block;
       content: '';
-      width: 0;
-      height: 0;
+      display: block;
       position: absolute;
-      border: 12px solid transparent;
-      border-top-color: #fff;
-      bottom: -23px;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      bottom: -10px;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) rotate(45deg);
     }
-  }
-  .icon-close {
-    cursor: pointer;
-    align-self: flex-end;
-    margin-bottom: 10px;
+
+    .icon-close {
+      position: absolute;
+      top: 0px;
+      right: 8px;
+    }
+
+    .content {
+      margin-top: 14px;
+    }
   }
 </style>
