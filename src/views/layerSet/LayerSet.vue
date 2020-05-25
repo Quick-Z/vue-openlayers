@@ -5,37 +5,37 @@
       <li><span>OSM 层</span>
         <fieldset id="layer0">
           <label class="checkbox" for="visible0">
-            <input id="visible0" class="visible" type="checkbox" v-model="visible0" />可见
+            <input id="visible0" class="visible" type="checkbox" v-model="visible0" @change="changeCheckBox('visible0', 'baseMap')" />可见
           </label>
           <label>透明度</label>
-          <input class="opacity" type="range" min="0" max="1" step="0.01" v-model="visible0Opacity" />
+          <input class="opacity" type="range" min="0" max="1" step="0.01" v-model="visible0Opacity" @change="changeOpacity('visible0Opacity', 'baseMap')" />
         </fieldset>
       </li>
       <li><span>图层组</span>
         <fieldset id="layer1">
           <label class="checkbox" for="visible1">
-            <input id="visible1" class="visible" type="checkbox" v-model="visible1" />可见
+            <input id="visible1" class="visible" type="checkbox" v-model="visible1" @change="changeCheckBox('visible1', 'group')" />可见
           </label>
           <label>透明度</label>
-          <input class="opacity" type="range" min="0" max="1" step="0.01" v-model="visible1Opacity" />
+          <input class="opacity" type="range" min="0" max="1" step="0.01" v-model="visible1Opacity" @change="changeOpacity('visible1Opacity', 'group')" />
         </fieldset>
         <ul>
           <li><span>食物危机主题图层</span>
             <fieldset id="layer10">
               <label class="checkbox" for="visible10">
-                <input id="visible10" class="visible" type="checkbox" v-model="visible10" />可见
+                <input id="visible10" class="visible" type="checkbox" v-model="visible10" @change="changeCheckBox('visible10', 'food')" />可见
               </label>
               <label>透明度</label>
-              <input class="opacity" type="range" min="0" max="1" step="0.01" v-model="visible10Opacity" />
+              <input class="opacity" type="range" min="0" max="1" step="0.01" v-model="visible10Opacity" @change="changeOpacity('visible10Opacity', 'food')" />
             </fieldset>
           </li>
           <li><span>世界陆地边界图</span>
             <fieldset id="layer11">
               <label class="checkbox" for="visible11">
-                <input id="visible11" class="visible" type="checkbox" v-model="visible11" />可见
+                <input id="visible11" class="visible" type="checkbox" v-model="visible11" @change="changeCheckBox('visible11', 'land')" />可见
               </label>
               <label>透明度</label>
-              <input class="opacity" type="range" min="0" max="1" step="0.01" v-model="visible11Opacity" />
+              <input class="opacity" type="range" min="0" max="1" step="0.01" v-model="visible11Opacity" @change="changeOpacity('visible11Opacity', 'land')" />
             </fieldset>
           </li>
         </ul>
@@ -72,17 +72,21 @@ export default {
         target: 'map',
         layers: [
           new Tile({
+            name: 'baseMap',
             source: new OSM()
           }),
           new Group({
+            name: 'group',
             layers: [
               new Tile({
+                name: 'food',
                 source: new TileJSON({
                   url: 'https://api.tiles.mapbox.com/v4/mapbox.20110804-hoa-foodinsecurity-3month.json?securee&access_token=pk.eyJ1IjoiYWhvY2V2YXIiLCJhIjoiY2pzbmg0Nmk5MGF5NzQzbzRnbDNoeHJrbiJ9.7_-_gL8ur7ZtEiNwRfCy7Q',
                   crossOrigin: 'anonymous'
                 })
               }),
               new Tile({
+                name: 'land',
                 source: new TileJSON({
                   url: 'https://api.tiles.mapbox.com/v4/mapbox.world-borders-light.json?secure&access_token=pk.eyJ1IjoiYWhvY2V2YXIiLCJhIjoiY2pzbmg0Nmk5MGF5NzQzbzRnbDNoeHJrbiJ9.7_-_gL8ur7ZtEiNwRfCy7Q',
                   crossOrigin: 'anonymous'
@@ -97,6 +101,31 @@ export default {
           zoom: 4 // 地图缩放级别（打开页面时默认级别）
         })
       })
+    },
+
+    // 显示/隐藏图层
+    changeCheckBox(target, name) {
+      let layers = this.find(this.map, name);
+      layers.setVisible(this[target]);
+    },
+
+    // 修改图层透明度
+    changeOpacity(target, name) {
+      let layers = this.find(this.map, name);
+      layers.setOpacity(parseFloat(this[target]));
+    },
+
+    // 查找图层
+    find(source, name) {
+      let s = source.getLayers()
+      for (let i = 0; i < s.getLength(); i++) {
+        if (s.item(i).get('name') === name) {
+          return s.item(i)
+        }
+        if (s.item(i) instanceof Group) {
+          return this.find(s.item(i), name)
+        }
+      }
     }
   },
   mounted () {
