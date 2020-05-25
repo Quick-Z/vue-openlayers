@@ -39,9 +39,9 @@ export default {
       // 维也纳“圆点”标签
       let marker = new Overlay({
         position: pos,
-        positioning: "center-center",
+        positioning: "center-center", // 如果不配置，则圆的左上角和坐标点对其
         element: this.$refs.marker,
-        stopEvent: false
+        stopEvent: false, // 不阻止默认事件，比如鼠标放到圆点上时，滚动鼠标滚轮，也可以缩放地图
       })
 
       // 实例化地图
@@ -52,12 +52,15 @@ export default {
             source: new OSM()
           })
         ],
-        overlays: [marker, vienna],
+        // overlays: [marker, vienna],
         view: new View({
           center: pos,
           zoom: 12 // 地图缩放级别（打开页面时默认级别）
         })
       })
+
+      this.map.addOverlay(marker); // 添加图形标记
+      this.map.addOverlay(vienna); // 添加文字标记
     }
   },
   mounted () {

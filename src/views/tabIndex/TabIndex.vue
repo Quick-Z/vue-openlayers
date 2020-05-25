@@ -5,7 +5,8 @@
     <div class="explain">
       <p>通过给地图容器设置 tabindex="2" 来控制默认不会选中地图。</p>
       <p>只有当鼠标点击地图时，才能进行缩放等操作。</p>
-      <p>如果没选中地图，即使在地图上滑动滚轮，也不会操作到地图</p>
+      <p>如果没选中地图，即使在地图上滑动滚轮，也不会操作到地图。</p>
+      <p>在vs code中 输入Lorem+数字，再按tab或回车 就会出现以下内容。</p>
     </div>
     <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, earum voluptatum. Culpa consequatur reiciendis ea iure quis voluptatibus dolore laborum perferendis inventore, eaque harum quisquam earum recusandae nesciunt, expedita incidunt iste. Facilis fuga ut neque deserunt omnis magni aperiam officiis. Architecto officiis qui eius, facere facilis quis, omnis placeat, autem excepturi tempora eveniet culpa beatae consectetur repellendus tenetur ad molestias explicabo veniam blanditiis? Amet consectetur necessitatibus obcaecati, praesentium possimus sunt dolore magnam nostrum quidem atque minima fugiat quaerat recusandae nisi?</div>
   </div>

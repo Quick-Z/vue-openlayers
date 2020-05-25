@@ -1,6 +1,6 @@
 <template>
   <div class="vm">
-    <h2 class="h-title">缩放</h2>
+    <h2 class="h-title">地图缩放级别</h2>
     <div id="map" class="map-x"></div>
 
     <div class="zoom">
@@ -46,6 +46,8 @@ export default {
     }
   },
   methods: {
+
+    // 初始化地图
     initMap () {
       this.map = new Map({
         target: "map",
@@ -57,17 +59,21 @@ export default {
         view: new View({
           projection: "EPSG:4326",
           center: [116.404177,39.909652],
-          zoom: this.zoom,
-          minZoom: this.minZoom,
-          maxZoom: this.maxZoom
+          zoom: this.zoom, // 默认缩放级别
+          minZoom: this.minZoom, // 限制最小缩放级别
+          maxZoom: this.maxZoom // 限制最大缩放级别
         })
       })
     },
+    
+    // 放大1级
     zoomIn () {
-      let view = this.map.getView()
-      let zoom = view.getZoom()
+      let view = this.map.getView() // 获取当前视图
+      let zoom = view.getZoom() // 获取当前缩放级别
       view.setZoom(zoom + 1)
     },
+
+    // 缩小1级
     zoomOut () {
       let view = this.map.getView()
       let zoom = view.getZoom()

@@ -56,7 +56,7 @@ export default {
             prreload: 0, // 默认值
             source: new BingMaps({
               key: 'AiZrfxUNMRpOOlCpcMkBPxMUSKOEzqGeJTcVKUrXBsUdQDXutUBFN3-GnMNSlso-',
-              imagerySet: 'Aerial'
+              imagerySet: 'AerialWithLabels'
             })
           })
         ],

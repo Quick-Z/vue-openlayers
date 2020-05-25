@@ -43,9 +43,14 @@ export default {
       })
       this.map.setTarget('map1')
     },
+
+    // 切换容器
     changeMap () {
-      let target = this.map.getTarget() === 'map1' ? 'map2' : 'map1'
-      this.map.setTarget(target)
+      // 获取当前地图容器，并进行判断
+      let target = this.map.getTarget() === 'map1' ? 'map2' : 'map1';
+
+      // 重新设置地图容器
+      this.map.setTarget(target);
     }
   },
   mounted () {
