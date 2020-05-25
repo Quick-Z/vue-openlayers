@@ -1,10 +1,15 @@
 <template>
   <div class="vm">
     <h2 class="h-title">热力图 Heatmap</h2>
+
     <label>半径大小</label>
     <input id="radius" type="range" min="1" max="50" step="1" v-model="radius" @change="changeRadius" />
+    
     <label>模糊半径</label>
     <input id="blur" type="range" min="1" max="50" step="1" v-model="blur" @change="changeBlur" />
+
+    <button @click="getHeatName">输出涂层名</button>
+
     <div id="map" class="map-x" ref="map"></div>
   </div>
 </template>
@@ -24,6 +29,7 @@ export default {
       radius: 5,
       blur: 15,
       vector: new Heatmap({ // 热力图
+        name: '热力热力',
         source: new SourceVector({
           features: new GeoJSON().readFeatures(HeatData, {
             dataProjection: "EPSG:4326",
@@ -64,6 +70,14 @@ export default {
     // 修改模糊半径
     changeBlur() {
       this.vector.setBlur(parseInt(this.blur, 10))
+    },
+
+    getHeatName() {
+      let layers = this.map.getLayers()
+      for (var i = 0; i < layers.getLength(); i++) {
+        // console.log(layers.item(i))
+        console.log('图层名：', layers.item(i).get('name'))
+      }
     }
   },
   mounted() {
@@ -71,7 +85,7 @@ export default {
   }
 }
 </script>
-
+ 
 <style lang="scss" scoped>
 
 </style>
