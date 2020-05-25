@@ -9,7 +9,7 @@
 import 'ol/ol.css'
 import { Map, View } from 'ol'
 import Tile from 'ol/layer/Tile'
-import BingMaps from 'ol/source/BingMaps'
+import { OSM } from 'ol/source'
 import * as control from 'ol/control'
 
 export default {
@@ -21,30 +21,31 @@ export default {
   },
   methods: {
     initMap () {
+
+
+      let overviewMapControl = new control.OverviewMap({
+        className: 'ol-overviewmap ol-custom-overviewmap',
+        layers: [
+          new Tile({
+            source: new OSM({
+              'url': 'https://{a-c}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png' + '?apikey=0e6fc415256d4fbb9b5166a718591d71'
+            })
+          })
+        ],
+        collapseLabel: '\u00BB',
+        label: '\u00AB',
+        collapsed: false
+      })
+
       this.map = new Map({
         target: 'map',
         controls: control.defaults().extend([
-          new control.OverviewMap({
-            className: 'ol-overviewmap ol-custom-overviewmap',
-            layers: [
-              new Tile({
-                source: new BingMaps({
-                  key: 'AiZrfxUNMRpOOlCpcMkBPxMUSKOEzqGeJTcVKUrXBsUdQDXutUBFN3-GnMNSlso-',
-                  imagerySet: 'Road'
-                })
-              })
-            ],
-            collapseLabel: '\u00BB',
-            label: '\u00AB',
-            collapsed: false
-          })
+          overviewMapControl
         ]),
+        // interactions
         layers: [
           new Tile({
-            source: new BingMaps({
-              key: 'AiZrfxUNMRpOOlCpcMkBPxMUSKOEzqGeJTcVKUrXBsUdQDXutUBFN3-GnMNSlso-',
-              imagerySet: 'Aerial'
-            })
+            source: new OSM()
           })
         ],
         view: new View({
@@ -61,36 +62,36 @@ export default {
 }
 </script>
 
-<style scoped>
-  .ol-custom-overviewmap,
-  .ol-custom-overviewmap.ol-uncollapsible {
+<style lang="scss" scoped>
+  ::v-deep .ol-custom-overviewmap,
+  ::v-deep .ol-custom-overviewmap.ol-uncollapsible {
     bottom: auto;
     left: auto;
     right: 0;
     top: 0;
   }
 
-  .ol-custom-overviewmap:not(.ol-collapsed) {
+  ::v-deep .ol-custom-overviewmap:not(.ol-collapsed) {
     border: 1px solid black;
   }
 
-  .ol-custom-overviewmap .ol-overviewmap-map {
+  ::v-deep .ol-custom-overviewmap .ol-overviewmap-map {
     border: none;
     width: 300px;
   }
 
-  .ol-custom-overviewmap .ol-overviewmap-box {
+  ::v-deep .ol-custom-overviewmap .ol-overviewmap-box {
     border: 2px solid red;
   }
 
-  .ol-custom-overviewmap:not(.ol-collapsed) button {
+  ::v-deep .ol-custom-overviewmap:not(.ol-collapsed) button {
     bottom: auto;
     left: auto;
     right: 1px;
     top: 1px;
   }
 
-  .ol-rotate {
+  ::v-deep .ol-rotate {
     top: 170px;
     right: 0;
   }
