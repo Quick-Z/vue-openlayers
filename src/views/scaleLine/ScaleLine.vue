@@ -1,10 +1,13 @@
 <template>
   <div class="vm">
     <h2 class="h-title">比例尺控件 ScaleLine</h2>
-    <div id="map" class="map-x"></div>
+
     <select id="units" v-model="scaleplate">
       <option v-for="item in scaleplateList" :key="item.v">{{item.t}}</option>
     </select>
+    
+    <div id="map" class="map-x"></div>
+    
   </div>
 </template>
 
