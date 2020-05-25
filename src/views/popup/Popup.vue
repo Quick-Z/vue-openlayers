@@ -40,15 +40,17 @@ export default {
   },
   methods: {
     initMap() {
+
+      // 弹窗
       this.overlay = new Overlay({
-        element: this.$refs.popup,
-        autoPan: true,
-        autoPanAnimation: {
+        element: this.$refs.popup, // 弹窗标签，在html里
+        autoPan: true, // 如果弹窗在底图边缘时，底图会移动
+        autoPanAnimation: { // 底图移动动画
           duration: 250
         }
       })
 
-
+      // 实例化地图
       this.map = new Map({
         target: this.$refs.map,
         layers: [
@@ -59,11 +61,11 @@ export default {
             })
           })
         ],
-        overlays: [this.overlay],
+        overlays: [this.overlay], // 把弹窗加入地图
         view: new View({
           projection: 'EPSG:4326',
           center: [113.1206, 23.034996],
-          zoom: 12
+          zoom: 12 // 地图缩放级别（打开页面时默认级别）
         })
       })
 
