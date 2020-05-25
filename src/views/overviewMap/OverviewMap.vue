@@ -11,6 +11,7 @@ import { Map, View } from 'ol'
 import Tile from 'ol/layer/Tile'
 import { OSM } from 'ol/source'
 import * as control from 'ol/control'
+import * as olInteraction from 'ol/interaction';
 
 export default {
   name: 'OverviewMap',
@@ -21,7 +22,6 @@ export default {
   },
   methods: {
     initMap () {
-
 
       let overviewMapControl = new control.OverviewMap({
         className: 'ol-overviewmap ol-custom-overviewmap',
@@ -42,14 +42,16 @@ export default {
         controls: control.defaults().extend([
           overviewMapControl
         ]),
-        // interactions
+        interactions: olInteraction.defaults().extend([
+          new olInteraction.DragRotateAndZoom()
+        ]),
         layers: [
           new Tile({
             source: new OSM()
           })
         ],
         view: new View({
-          projection: "EPSG:4326", // 坐标系，有EPSG:4326和EPSG:3857
+          // projection: "EPSG:4326", // 坐标系，有EPSG:4326和EPSG:3857
           center: [114.064839, 22.548857],
           zoom: 6 // 地图缩放级别（打开页面时默认级别）
         })
@@ -58,6 +60,7 @@ export default {
   },
   mounted () {
     this.initMap()
+    console.log(olInteraction)
   }
 }
 </script>
