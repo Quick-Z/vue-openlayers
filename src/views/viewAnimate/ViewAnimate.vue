@@ -46,7 +46,7 @@ export default {
             })
           })
         ],
-        loadTilesWhileAnimating: true,
+        loadTilesWhileAnimating: true, // 当动画过渡当时候允许加载瓦片
         view: new View({
           projection: "EPSG:4326", // 坐标系，有EPSG:4326和EPSG:3857
           center: this.London, // 伦敦

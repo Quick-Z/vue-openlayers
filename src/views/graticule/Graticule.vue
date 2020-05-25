@@ -22,7 +22,8 @@ export default {
   },
   methods: {
     initMap () {
-      console.log(new Map())
+
+      // 初始化地图
       this.map = new Map({
         target: 'map',
         layers: [
@@ -34,13 +35,18 @@ export default {
           })
         ],
         view: new View({
-          projection: 'EPSG:4326',
+          projection: 'EPSG:4326', 
           center: [114.064839, 22.548857],
           zoom: 6
         })
       })
 
       let graticule = new Graticule({
+        strokeStyle: new Stroke({
+          color: 'rgba(255, 120, 0, .5)', // 线条颜色
+          width: 2, // 线条宽度
+          lineDash: [4] // 虚线，每隔4像素
+        }),
         showLabels: true
       })
 
