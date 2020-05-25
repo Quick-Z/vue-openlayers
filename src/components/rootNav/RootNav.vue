@@ -73,6 +73,10 @@ export default {
           to: '/graticule'
         },
         {
+          title: '热力图 Heatmap',
+          to: '/heatmap'
+        },
+        {
           title: '比例尺控件 ScaleLine',
           to: '/scaleLine'
         },

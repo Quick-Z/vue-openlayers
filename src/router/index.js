@@ -66,6 +66,11 @@ const routes = [
     component: () => import('../views/graticule/Graticule')
   },
   {
+    path: '/heatmap',
+    name: 'Heatmap',
+    component: () => import('../views/heatmap/heatmap')
+  },
+  {
     path: '/scaleLine',
     name: 'ScaleLine',
     component: () => import('../views/scaleLine/ScaleLine')
