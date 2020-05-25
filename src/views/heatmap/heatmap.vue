@@ -50,8 +50,8 @@ export default {
         target: this.$refs.map,
         layers: [raster, this.vector],
         view: new View({
-          center: [149.042007, -35.349998],
-          zoom: 20
+          center: [20.042007, -35.349998],
+          zoom: 19
         })
       })
     },
