@@ -1,7 +1,6 @@
 <template>
   <div class="vm">
     <h2 class="h-title">控制图层层叠关系 Set zIndex</h2>
-    <div id="map" class="map-x"></div>
     <label for="idx1">
       <input type="number" v-model="squareZIndex" />
       方块所在图层的 Z-index
@@ -14,6 +13,7 @@
       <input type="number" v-model="starZIndex" />
       星形所在图层的 Z-index
     </label>
+    <div id="map" class="map-x"></div>
   </div>
 </template>
 
@@ -87,6 +87,8 @@ export default {
       this.layer1 = this.createLayer([0, 0], this.styles['square'], this.squareZIndex)
       this.layer2 = this.createLayer([0, 40], this.styles['triangle'], this.triangleZIndex)
 
+
+      // 如果zindex相等，那么🈷越靠后的元素就在越上层
       let layers = [this.layer1, this.layer2, this.layer0]
 
       this.map = new Map({
