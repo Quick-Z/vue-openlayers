@@ -121,6 +121,11 @@ const routes = [
     component: () => import('../views/setExtent/SetExtent')
   },
   {
+    path: '/coverageModal',
+    name: 'CoverageModal',
+    component: () => import('../views/coverageModal/coverageModal')
+  },
+  {
     path: '/setSource',
     name: 'SetSource',
     component: () => import('../views/setSource/SetSource')

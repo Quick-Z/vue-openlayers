@@ -117,6 +117,10 @@ export default {
           to: '/setExtent'
         },
         {
+          title: '图层遮罩效果',
+          to: '/coverageModal'
+        },
+        {
           title: '设置图层的源 setSource',
           to: '/setSource'
         },
