@@ -24,9 +24,7 @@ export default {
       let osm = new Tile({
         source: new OSM()
       })
-
       
-
       this.map = new Map({
         target: this.$refs.map,
         layers: [osm],
@@ -36,7 +34,6 @@ export default {
           zoom: 1
         })
       })
-
 
       osm.on('postrender', event => {
 
@@ -68,8 +65,7 @@ export default {
         var ctx = event.context;
          ctx.restore();
       });
-
-     
+      
     }
   },
   mounted() {

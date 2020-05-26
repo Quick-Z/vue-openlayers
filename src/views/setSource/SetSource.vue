@@ -1,9 +1,9 @@
 <template>
   <div class="vm">
     <h2 class="h-title">设置图层的源 setSource</h2>
-    <div id="map" class="map-x"></div>
     <button @click="setSource('osm')">设置为OSM</button>
     <button @click="setSource('bing')">设置为BingMaps</button>
+    <div id="map" class="map-x"></div>
   </div>
 </template>
 
@@ -39,6 +39,8 @@ export default {
       })
       this.layer.setSource(this.osm)
     },
+
+    // 设置图层源
     setSource (data) {
       this.layer.setSource(this[data])
     }
