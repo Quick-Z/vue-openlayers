@@ -1,11 +1,11 @@
 <template>
   <div class="vm">
     <h2 class="h-title">按限制范围加载图层</h2>
-    <div id="map" class="map-x"></div>
     <button @click="replaceTheRegion('India')">印度</button>
     <button @click="replaceTheRegion('Argentina')">阿根廷</button>
     <button @click="replaceTheRegion('Nigeria')">尼日利亚</button>
     <button @click="replaceTheRegion('Sweden')">瑞典</button>
+    <div id="map" class="map-x"></div>
   </div>
 </template>
 
