@@ -159,6 +159,11 @@ const routes = [
     path: '/drawGraph',
     name: 'DrawGraph',
     component: () => import('../views/drawGraph/drawGraph')
+  },
+  {
+    path: '/freeDrawing',
+    name: 'FreeDrawing',
+    component: () => import('../views/freeDrawing/freeDrawing')
   }
 ]
 

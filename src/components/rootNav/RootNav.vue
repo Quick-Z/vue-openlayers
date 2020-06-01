@@ -147,6 +147,10 @@ export default {
         {
           title: '绘制图形',
           to: '/drawGraph'
+        },
+        {
+          title: '自由绘制图形',
+          to: '/freeDrawing'
         }
       ]
     }
