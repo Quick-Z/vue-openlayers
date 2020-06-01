@@ -149,6 +149,11 @@ const routes = [
     path: '/polymerization',
     name: 'Polymerization',
     component: () => import('../views/polymerization/Polymerization')
+  },
+  {
+    path: '/basicDraw',
+    name: 'BasicDraw',
+    component: () => import('../views/basicDraw/basicDraw')
   }
 ]
 

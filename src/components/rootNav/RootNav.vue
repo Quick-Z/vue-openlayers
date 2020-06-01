@@ -139,6 +139,10 @@ export default {
         {
           title: '聚合数据',
           to: '/polymerization'
+        },
+        {
+          title: '绘制点、线、面',
+          to: '/basicDraw'
         }
       ]
     }
