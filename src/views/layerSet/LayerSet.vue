@@ -104,12 +104,14 @@ export default {
     },
 
     // 显示/隐藏图层
+    // setVisible可以设置图层显示或隐藏
     changeCheckBox(target, name) {
       let layers = this.find(this.map, name);
       layers.setVisible(this[target]);
     },
 
     // 修改图层透明度
+    // setOpacity可是设置图层的透明度，接收一个数值类型的参数
     changeOpacity(target, name) {
       let layers = this.find(this.map, name);
       layers.setOpacity(parseFloat(this[target]));
@@ -118,11 +120,11 @@ export default {
     // 查找图层
     find(source, name) {
       let s = source.getLayers()
-      for (let i = 0; i < s.getLength(); i++) {
-        if (s.item(i).get('name') === name) {
+      for (let i = 0; i < s.getLength(); i++) { // 遍历所有图层
+        if (s.item(i).get('name') === name) { // 根据图层名，查找并返回查找到的图层
           return s.item(i)
         }
-        if (s.item(i) instanceof Group) {
+        if (s.item(i) instanceof Group) { // 递归
           return this.find(s.item(i), name)
         }
       }
