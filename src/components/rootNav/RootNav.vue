@@ -143,6 +143,10 @@ export default {
         {
           title: '绘制点、线、面',
           to: '/basicDraw'
+        },
+        {
+          title: '绘制图形',
+          to: '/drawGraph'
         }
       ]
     }

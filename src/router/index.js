@@ -154,6 +154,11 @@ const routes = [
     path: '/basicDraw',
     name: 'BasicDraw',
     component: () => import('../views/basicDraw/basicDraw')
+  },
+  {
+    path: '/drawGraph',
+    name: 'DrawGraph',
+    component: () => import('../views/drawGraph/drawGraph')
   }
 ]
 
