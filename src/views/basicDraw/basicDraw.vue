@@ -48,7 +48,7 @@ export default {
       map: null, // 地图
       draw: null,
       source: new SourceVector({
-        wrapX: false
+        wrapX: false // 禁止横向无限重复（底图渲染的时候会横向无限重复），设置了这个属性，可以让绘制的图形不跟随底图横向无限重复
       })
     }
   },
