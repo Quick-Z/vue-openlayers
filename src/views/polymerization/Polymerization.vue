@@ -1,7 +1,7 @@
 <template>
   <div class="vm">
-      <h2 class="h-title">聚合数据</h2>
-      <div id="map" class="map-x"></div>
+    <h2 class="h-title">聚合数据</h2>
+    <div id="map" class="map-x"></div>
   </div>
 </template>
 

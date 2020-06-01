@@ -61,6 +61,10 @@ export default {
           to: '/vectorJSON'
         },
         {
+          title: '矢量图 高亮',
+          to: '/vectorHigh'
+        },
+        {
           title: '旋转 rotation',
           to: '/rotationMap'
         },

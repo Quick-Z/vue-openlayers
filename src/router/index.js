@@ -51,6 +51,11 @@ const routes = [
     component: () => import('../views/vectorJSON/VectorJSON')
   },
   {
+    path: '/vectorHigh',
+    name: 'VectorHigh',
+    component: () => import('../views/vectorHigh/vectorHigh')
+  },
+  {
     path: '/rotationMap',
     name: 'RotationMap',
     component: () => import('../views/rotationMap/RotationMap')
