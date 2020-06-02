@@ -151,6 +151,10 @@ export default {
         {
           title: '自由绘制图形',
           to: '/freeDrawing'
+        },
+        {
+          title: '带箭头的线段',
+          to: '/arrowLine'
         }
       ]
     }
