@@ -1,6 +1,6 @@
 <template>
   <div class="vm">
-    <h2 class="h-title">绘制图形</h2>
+    <h2 class="h-title">自由绘制绘制图形</h2>
     <div class="tools-x">
       <select id="type" v-model="tool">
         <option v-for="item in tools" :key="item.value" :value="item.value">{{item.label}}</option>
