@@ -155,6 +155,10 @@ export default {
         {
           title: '带箭头的线段',
           to: '/arrowLine'
+        },
+        {
+          title: '修改已绘制的图形',
+          to: '/snapGraph'
         }
       ]
     }

@@ -169,6 +169,11 @@ const routes = [
     path: '/arrowLine',
     name: 'ArrowLine',
     component: () => import('../views/arrowLine/arrowLine')
+  },
+  {
+    path: '/snapGraph',
+    name: 'SnapGraph',
+    component: () => import('../views/snapGraph/snapGraph')
   }
 ]
 
