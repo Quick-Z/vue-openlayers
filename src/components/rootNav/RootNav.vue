@@ -69,6 +69,10 @@ export default {
           to: '/rotationMap'
         },
         {
+          title: '鼠标拖拽旋转/缩放',
+          to: '/mouseRotationMap'
+        },
+        {
           title: '动画 animate',
           to: '/viewAnimate'
         },

@@ -174,6 +174,11 @@ const routes = [
     path: '/snapGraph',
     name: 'SnapGraph',
     component: () => import('../views/snapGraph/snapGraph')
+  },
+  {
+    path: '/mouseRotationMap',
+    name: 'MouseRotationMap',
+    component: () => import('../views/mouseRotationMap/mouseRotationMap')
   }
 ]
 
