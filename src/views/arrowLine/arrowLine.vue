@@ -1,6 +1,6 @@
 <template>
   <div class="vm">
-    <h2 class="h-title">绘制图形</h2>
+    <h2 class="h-title">带箭头的线段</h2>
     <div ref="map" class="map-x"></div>
   </div>
 </template>
@@ -77,7 +77,8 @@ export default {
 
       this.map.addInteraction(new Draw({
         source: this.source,
-        type: 'LineString'
+        type: 'LineString',
+        // freehand: true // 如果加上自由绘制哈哈哈哈哈哈
       }))
     }
   },
