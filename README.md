@@ -3,7 +3,7 @@
 在 ``Vue`` 上使用 ``openlayers``。
 本项目为练习案例。
 
-![微信订阅号：Rabbit_svip](https://upload-images.jianshu.io/upload_images/7275569-efbe977b8d801fc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![微信订阅号：Rabbit_svip](https://images.gitee.com/uploads/images/2020/0606/204201_c329f5ac_4809606.png)
 
 
 <br>
