@@ -1,6 +1,7 @@
 # openlayers 在 Vue3 里应用
-[ol在vue3中运行，仓库地址](https://gitee.com/k21vin/front-end-data-visualization)
-[ol在vue3中运行，预览地址](http://k21vin.gitee.io/front-end-data-visualization/#/)
+ :rocket: [ol在vue3中运行，仓库地址](https://gitee.com/k21vin/front-end-data-visualization)
+<br>
+ :rocket: [ol在vue3中运行，预览地址](http://k21vin.gitee.io/front-end-data-visualization/#/)
 
 # vue-openlayers
 
