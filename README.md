@@ -46,4 +46,4 @@ $ npm run build
 
  :rocket: [ol在vue3中运行，仓库地址](https://gitee.com/k21vin/front-end-data-visualization)
 <br>
- :rocket: [ol在vue3中运行，预览地址](http://k21vin.gitee.io/front-end-data-visualization/#/openlayers/openlayers-basic/ol-stated)
+ :rocket: [ol在vue3中运行，预览地址](http://k21vin.gitee.io/front-end-data-visualization/#/openlayers/ol-basic/ol-stated)
