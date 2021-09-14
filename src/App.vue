@@ -20,6 +20,11 @@ export default {
 <style lang="scss">
   @import '@/assets/css/mixins.scss';
 
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
   #app {
     display: flex;
   }
