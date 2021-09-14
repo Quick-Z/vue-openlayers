@@ -1,6 +1,10 @@
 # vue-openlayers
 
-[点击预览本项目](http://k21vin.gitee.io/vue-openlayers/)
+[🎈点击预览本项目](http://k21vin.gitee.io/vue-openlayers/)
+<br>
+:rocket: [ol在vue3中运行，仓库地址](https://gitee.com/k21vin/front-end-data-visualization)
+<br>
+ :rocket: [ol在vue3中运行，预览地址  :rocket:  :rocket:  :rocket:  :rocket: ](http://k21vin.gitee.io/front-end-data-visualization/#/openlayers/ol-basic/ol-stated)
 
 在 ``Vue2`` 上使用 ``openlayers``。
 本项目为练习案例。
@@ -37,9 +41,9 @@ $ npm run build
 
 ### 说明
 使用了以下框架和库。<br>
-- [Vue](https://cn.vuejs.org/)
-- [Vue-Router](https://router.vuejs.org/zh/)
-- [openlayers](https://openlayers.org/)
+- [Vue 文档](https://cn.vuejs.org/)
+- [Vue-Router 文档](https://router.vuejs.org/zh/)
+- [openlayers 官网](https://openlayers.org/)
 
 
 # 更多推荐
