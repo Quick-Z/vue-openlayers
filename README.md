@@ -1,5 +1,7 @@
 # vue-openlayers
 
+[点击预览本项目](http://k21vin.gitee.io/vue-openlayers/)
+
 在 ``Vue2`` 上使用 ``openlayers``。
 本项目为练习案例。
 
@@ -37,7 +39,6 @@ $ npm run build
 使用了以下框架和库。<br>
 - [Vue](https://cn.vuejs.org/)
 - [Vue-Router](https://router.vuejs.org/zh/)
-- [Vuex](https://vuex.vuejs.org/zh/) (安装了Vuex，但项目中暂时没使用到)
 - [openlayers](https://openlayers.org/)
 
 
