@@ -39,7 +39,7 @@ export default {
         target: 'map1',
         layers: [
           new Tile({
-            prreload: Infinity, // 预加载
+            preload: Infinity, // 预加载
             source: new BingMaps({
               key: 'AiZrfxUNMRpOOlCpcMkBPxMUSKOEzqGeJTcVKUrXBsUdQDXutUBFN3-GnMNSlso-',
               imagerySet: 'Aerial'
@@ -53,7 +53,7 @@ export default {
         target: 'map2',
         layers: [
           new Tile({
-            prreload: 0, // 默认值
+            preload: 0, // 默认值
             source: new BingMaps({
               key: 'AiZrfxUNMRpOOlCpcMkBPxMUSKOEzqGeJTcVKUrXBsUdQDXutUBFN3-GnMNSlso-',
               imagerySet: 'AerialWithLabels'
