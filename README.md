@@ -1,19 +1,49 @@
-# vue22-openlayers
+# vue-openlayers
 
-## Project setup
+在 ``Vue2`` 上使用 ``openlayers``。
+本项目为练习案例。
+
+![微信订阅号：Rabbit_svip](https://images.gitee.com/uploads/images/2020/0606/204201_c329f5ac_4809606.png)
+
+
+<br>
+
+## 安装
 ```
-yarn install
+$ npm install
+```
+或者
+```
+$ npm install --registry=https://registry.npm.taobao.org
 ```
 
-### Compiles and hot-reloads for development
+<br>
+
+### 运行
 ```
-yarn serve
+$ npm run serve
 ```
 
-### Compiles and minifies for production
+<br>
+
+### 打包
 ```
-yarn build
+$ npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<br>
+
+### 说明
+使用了以下框架和库。<br>
+- [Vue](https://cn.vuejs.org/)
+- [Vue-Router](https://router.vuejs.org/zh/)
+- [Vuex](https://vuex.vuejs.org/zh/) (安装了Vuex，但项目中暂时没使用到)
+- [openlayers](https://openlayers.org/)
+
+
+# 更多推荐
+**openlayers 在 Vue3 里应用**
+
+ :rocket: [ol在vue3中运行，仓库地址](https://gitee.com/k21vin/front-end-data-visualization)
+<br>
+ :rocket: [ol在vue3中运行，预览地址](http://k21vin.gitee.io/front-end-data-visualization/#/openlayers/ol-basic/ol-stated)
